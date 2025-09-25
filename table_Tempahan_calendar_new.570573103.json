@@ -1,0 +1,2056 @@
+{
+	"sql": "SELECT\r\n\tid,\r\n\ttempahan_oleh,\r\n\ttarikh,\r\n\tsesi,\r\n\tbilik_id,\r\n\ttajuk_mesyuarat,\r\n\tbil_ahli,\r\n\tnama_pengerusi,\r\n\ttempahan_makan,\r\n\tstatus,\r\n\tbahagian\r\nFROM\r\n\ttempahan",
+	"type": 1,
+	"connId": "conn",
+	"originalTable": "tempahan",
+	"name": "Tempahan calendar_new",
+	"shortTableName": "Tempahan_calendar_new",
+	"dbType": 0,
+	"keyFields": [
+		"id"
+	],
+	"detailsBadgeColor": "5f9ea0",
+	"fields": [
+		{
+			"name": "id",
+			"sqlExpression": "id",
+			"index": 1,
+			"strField": "id",
+			"type": 3,
+			"autoinc": true,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Id"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "tempahan_oleh",
+			"sqlExpression": "tempahan_oleh",
+			"index": 2,
+			"strField": "tempahan_oleh",
+			"type": 3,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"defaultValue": "$_SESSION[\"UserData\"][\"id\"]",
+					"lookupType": 2,
+					"lookupTable": "pengguna",
+					"lookupTableConnection": "conn",
+					"lookupLinkField": "id",
+					"lookupDisplayField": "nama"
+				}
+			],
+			"label": {
+				"English": "Tempahan Oleh"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "tarikh",
+			"sqlExpression": "tarikh",
+			"index": 3,
+			"strField": "tarikh",
+			"type": 7,
+			"viewFormats": [
+				{
+					"format": "Short Date"
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Date",
+					"dateEditType": 11
+				}
+			],
+			"label": {
+				"English": "Tarikh"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "sesi",
+			"sqlExpression": "sesi",
+			"index": 4,
+			"strField": "sesi",
+			"type": 3,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Sesi"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "bilik_id",
+			"sqlExpression": "bilik_id",
+			"index": 5,
+			"strField": "bilik_id",
+			"type": 3,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"lookupType": 2,
+					"lookupTable": "bilik_ref",
+					"lookupTableConnection": "conn",
+					"lookupLinkField": "id",
+					"lookupDisplayField": "nama_bilik",
+					"lookupOrderBy": "id",
+					"lookupWhere": "bahagian = ':session.bahagian'"
+				}
+			],
+			"label": {
+				"English": "Bilik Id"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "tajuk_mesyuarat",
+			"sqlExpression": "tajuk_mesyuarat",
+			"index": 6,
+			"strField": "tajuk_mesyuarat",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Tajuk Mesyuarat"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "bil_ahli",
+			"sqlExpression": "bil_ahli",
+			"index": 7,
+			"strField": "bil_ahli",
+			"type": 3,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Bil Ahli"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "nama_pengerusi",
+			"sqlExpression": "nama_pengerusi",
+			"index": 8,
+			"strField": "nama_pengerusi",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Nama Pengerusi"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "tempahan_makan",
+			"sqlExpression": "tempahan_makan",
+			"index": 9,
+			"strField": "tempahan_makan",
+			"type": 3,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Tempahan Makan"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "status",
+			"sqlExpression": "status",
+			"index": 10,
+			"strField": "status",
+			"type": 3,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Status"
+			},
+			"tableName": "tempahan"
+		},
+		{
+			"name": "bahagian",
+			"sqlExpression": "bahagian",
+			"index": 11,
+			"strField": "bahagian",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"English": "Bahagian"
+			},
+			"tableName": "tempahan"
+		}
+	],
+	"eventHandlers": [
+		{
+			"eventId": "EVENT_BEFOREADD",
+			"pageType": "add",
+			"code": "// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n\n\n$tarikh = $values['tarikh'];\n$bilik_id = $values['bilik_id'];\n$sql = \"SELECT tarikh FROM tempahan WHERE tarikh = '\" . $tarikh . \"' AND bilik_id = \" . $bilik_id;\n$result = DB::Query($sql);\nif ($result->count() > 0) {\n    $message = \"Maaf, tempahan untuk tarikh dan bilik ini sudah ada.\";\n    return false;\n}\n\nreturn true; "
+		},
+		{
+			"eventId": "EVENT_JS_ONLOAD",
+			"pageType": "add",
+			"code": "// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\npageObj.getControl('tempahan_oleh'),makeReadonly();"
+		},
+		{
+			"eventId": "EVENT_BEFORESHOW_CALENDAR",
+			"pageType": "calendar",
+			"code": "// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n$js = <<<JS\n<script>\n(function(){\n  // local midnight helper (avoid 'YYYY-MM-DD' timezone parsing issues)\n  function localMidnightFromDate(d){\n    return new Date(d.getFullYear(), d.getMonth(), d.getDate());\n  }\n  function parseDateFromYMD(ymd){\n    var p = (ymd || \"\").split(\"-\");\n    if(p.length < 3) return null;\n    return new Date(parseInt(p[0],10), parseInt(p[1],10) - 1, parseInt(p[2],10));\n  }\n  function formatYMD(d){\n    var y = d.getFullYear();\n    var m = (d.getMonth() + 1).toString().padStart(2,'0');\n    var day = d.getDate().toString().padStart(2,'0');\n    return y + \"-\" + m + \"-\" + day;3\n  }\n\n  var todayLocalMid = localMidnightFromDate(new Date());\n\n  function installDisablePast(){\n    var calRoot = document.querySelector('[data-itemtype=\"calendar\"]');\n    if(!calRoot) return false;\n\n    // try FullCalendar API changes if available\n    try {\n      if(window.pageObj && pageObj.getCalendar){\n        var calendar = pageObj.getCalendar();\n        if(calendar && calendar.setOption){\n          // set validRange start as YYYY-MM-DD (safe)\n          calendar.setOption('validRange', { start: formatYMD(todayLocalMid) });\n          // block range selection that starts in the past\n          calendar.setOption('selectAllow', function(selectInfo){\n            var s = localMidnightFromDate(selectInfo.start);\n            return s >= todayLocalMid;\n          });\n        }\n      }\n    } catch(e){ /* ignore if api not available */ }\n\n    // add scoped CSS to visually 'grey-out' past days but don't block events\n    if(!document.getElementById('phpr_disable_past_css')){\n      var css = '[data-itemtype=\\\"calendar\\\"] .fc-day-past { opacity: 0.65; }' +\n                '[data-itemtype=\\\"calendar\\\"] .fc-day-past .fc-daygrid-day-top, ' +\n                '[data-itemtype=\\\"calendar\\\"] .fc-day-past .fc-daygrid-day-bg { pointer-events: none; }';\n      var style = document.createElement('style');\n      style.id = 'phpr_disable_past_css';\n      style.appendChild(document.createTextNode(css));\n      document.head.appendChild(style);\n    }\n\n    // delegated blocker: blocks clicks/mousedown/touchstart on past day cells\n    function blockIfPast(e){\n      var tgt = e.target;\n      if(!tgt) return;\n      // allow clicks inside events (so user can view past events)\n      if(tgt.closest && tgt.closest('.fc-event')) return;\n\n      var cell = tgt.closest && tgt.closest('[data-date]');\n      if(!cell) return;\n      var dateStr = cell.getAttribute('data-date');\n      if(!dateStr) return;\n      // parse as local date\n      var cellDate = parseDateFromYMD(dateStr);\n      if(!cellDate) return;\n      var cellMid = localMidnightFromDate(cellDate);\n      if(cellMid < todayLocalMid){\n        e.stopPropagation();\n        e.preventDefault();\n        // show message once briefly\n        if(!calRoot.__phpr_past_blocked){\n          alert('Tempahan untuk tarikh yang telah lepas tidak dibenarkan.');\n          calRoot.__phpr_past_blocked = true;\n          setTimeout(function(){ calRoot.__phpr_past_blocked = false; }, 900);\n        }\n        return false;\n      }\n    }\n\n    if(!calRoot.__phpr_handlers){\n      // capture phase to stop FullCalendar's handlers too\n      calRoot.addEventListener('click', blockIfPast, true);\n      calRoot.addEventListener('mousedown', blockIfPast, true);\n      calRoot.addEventListener('touchstart', blockIfPast, {capture:true, passive:false});\n      calRoot.__phpr_handlers = true;\n    }\n\n    return true;\n  }\n\n  // try install; if calendar not yet on page, retry for ~2 seconds\n  var start = Date.now();\n  function tryLoop(){\n    if(installDisablePast()) return;\n    if(Date.now() - start < 2000) setTimeout(tryLoop, 100);\n  }\n  if(document.readyState === 'loading'){\n    document.addEventListener('DOMContentLoaded', tryLoop);\n  } else {\n    tryLoop();\n  }\n})();\n</script>\nJS;\n\n    $xt->assign(\"footer\", $js);\n\n"
+		},
+		{
+			"eventId": "EVENT_BEFORESHOW_ADD",
+			"pageType": "add",
+			"code": "// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n$_SESSION[\"bahagian\"] = $_SESSION[\"UserData\"][\"bahagian\"];"
+		}
+	],
+	"calendarSettings": {
+		"dateField": "tarikh",
+		"subjectField": "tajuk_mesyuarat",
+		"descriptionField": "tajuk_mesyuarat",
+		"categoryField": "",
+		"fullDayField": "",
+		"timeField": "",
+		"endDateField": "",
+		"endTimeField": ""
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "id",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": false,
+				"autoinc": true,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tempahan_oleh",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tarikh",
+				"type": 7,
+				"size": 0,
+				"scale": 0,
+				"typeName": "date",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "sesi",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "bilik_id",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tajuk_mesyuarat",
+				"type": 200,
+				"size": 250,
+				"scale": 0,
+				"typeName": "varchar(250)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "bil_ahli",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama_pengerusi",
+				"type": 200,
+				"size": 250,
+				"scale": 0,
+				"typeName": "varchar(250)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tempahan_makan",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "status",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "bahagian",
+				"type": 200,
+				"size": 250,
+				"scale": 0,
+				"typeName": "varchar(250)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"id"
+		],
+		"uniqueFields": [],
+		"name": "tempahan"
+	},
+	"pages": [
+		{
+			"id": "export",
+			"type": "export",
+			"layoutId": "first",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "export-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"export_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "export-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"export_field",
+								"export_field1",
+								"export_field2",
+								"export_field3",
+								"export_field4",
+								"export_field5",
+								"export_field6",
+								"export_field7",
+								"export_field8",
+								"export_field9",
+								"export_field10"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "export-footer",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"export_export",
+								"export_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"export_header": {
+					"type": "export_header"
+				},
+				"export_export": {
+					"type": "export_export"
+				},
+				"export_cancel": {
+					"type": "export_cancel"
+				},
+				"export_field": {
+					"field": "id",
+					"type": "export_field"
+				},
+				"export_field1": {
+					"field": "tempahan_oleh",
+					"type": "export_field"
+				},
+				"export_field2": {
+					"field": "tarikh",
+					"type": "export_field"
+				},
+				"export_field3": {
+					"field": "sesi",
+					"type": "export_field"
+				},
+				"export_field4": {
+					"field": "bilik_id",
+					"type": "export_field"
+				},
+				"export_field5": {
+					"field": "tajuk_mesyuarat",
+					"type": "export_field"
+				},
+				"export_field6": {
+					"field": "bil_ahli",
+					"type": "export_field"
+				},
+				"export_field7": {
+					"field": "nama_pengerusi",
+					"type": "export_field"
+				},
+				"export_field8": {
+					"field": "tempahan_makan",
+					"type": "export_field"
+				},
+				"export_field9": {
+					"field": "status",
+					"type": "export_field"
+				},
+				"export_field10": {
+					"field": "bahagian",
+					"type": "export_field"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {},
+			"exportFormat": 2,
+			"exportDelimiter": ",",
+			"exportSelectDelimiter": false,
+			"exportSelectFields": false
+		},
+		{
+			"id": "import",
+			"type": "import",
+			"layoutId": "first",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "import-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"import_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "import-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"import_field",
+								"import_field1",
+								"import_field2",
+								"import_field3",
+								"import_field4",
+								"import_field5",
+								"import_field6",
+								"import_field7",
+								"import_field8",
+								"import_field9",
+								"import_field10"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"import_header": {
+					"type": "import_header"
+				},
+				"import_field": {
+					"field": "id",
+					"type": "import_field"
+				},
+				"import_field1": {
+					"field": "tempahan_oleh",
+					"type": "import_field"
+				},
+				"import_field2": {
+					"field": "tarikh",
+					"type": "import_field"
+				},
+				"import_field3": {
+					"field": "sesi",
+					"type": "import_field"
+				},
+				"import_field4": {
+					"field": "bilik_id",
+					"type": "import_field"
+				},
+				"import_field5": {
+					"field": "tajuk_mesyuarat",
+					"type": "import_field"
+				},
+				"import_field6": {
+					"field": "bil_ahli",
+					"type": "import_field"
+				},
+				"import_field7": {
+					"field": "nama_pengerusi",
+					"type": "import_field"
+				},
+				"import_field8": {
+					"field": "tempahan_makan",
+					"type": "import_field"
+				},
+				"import_field9": {
+					"field": "status",
+					"type": "import_field"
+				},
+				"import_field10": {
+					"field": "bahagian",
+					"type": "import_field"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "edit",
+			"type": "edit",
+			"layoutId": "nomenu",
+			"disabled": false,
+			"default": 1,
+			"forms": {
+				"above-grid": {
+					"modelId": "edit-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "edit-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_save",
+								"edit_back_list",
+								"edit_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"hamburger"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "edit-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_edit_field2",
+								"integrated_edit_field3",
+								"integrated_edit_field4",
+								"integrated_edit_field5",
+								"integrated_edit_field6",
+								"integrated_edit_field7",
+								"integrated_edit_field8",
+								"integrated_edit_field9"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"edit_header": {
+					"type": "edit_header"
+				},
+				"hamburger": {
+					"type": "hamburger",
+					"items": [
+						"edit_reset",
+						"edit_view"
+					]
+				},
+				"edit_reset": {
+					"type": "edit_reset"
+				},
+				"edit_message": {
+					"type": "edit_message"
+				},
+				"edit_save": {
+					"type": "edit_save"
+				},
+				"edit_back_list": {
+					"type": "edit_back_list"
+				},
+				"edit_close": {
+					"type": "edit_close"
+				},
+				"integrated_edit_field": {
+					"field": "tempahan_oleh",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field1": {
+					"field": "tarikh",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field2": {
+					"field": "sesi",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field3": {
+					"field": "bilik_id",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field4": {
+					"field": "tajuk_mesyuarat",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field5": {
+					"field": "bil_ahli",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field6": {
+					"field": "nama_pengerusi",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field7": {
+					"field": "tempahan_makan",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field8": {
+					"field": "status",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field9": {
+					"field": "bahagian",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"edit_view": {
+					"type": "edit_view"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "view",
+			"type": "view",
+			"layoutId": "nomenu",
+			"disabled": false,
+			"default": 1,
+			"forms": {
+				"above-grid": {
+					"modelId": "view-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "view-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"view_back_list",
+								"view_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"hamburger"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "view-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"view_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_edit_field2",
+								"integrated_edit_field3",
+								"integrated_edit_field4",
+								"integrated_edit_field5",
+								"integrated_edit_field6",
+								"integrated_edit_field7",
+								"integrated_edit_field8",
+								"integrated_edit_field9",
+								"integrated_edit_field10"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"view_header": {
+					"type": "view_header"
+				},
+				"view_back_list": {
+					"type": "view_back_list"
+				},
+				"view_close": {
+					"type": "view_close"
+				},
+				"integrated_edit_field": {
+					"field": "id",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "tempahan_oleh",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "tarikh",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field3": {
+					"field": "sesi",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field4": {
+					"field": "bilik_id",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field5": {
+					"field": "tajuk_mesyuarat",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field6": {
+					"field": "bil_ahli",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field7": {
+					"field": "nama_pengerusi",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field8": {
+					"field": "tempahan_makan",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field9": {
+					"field": "status",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field10": {
+					"field": "bahagian",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"hamburger": {
+					"type": "hamburger",
+					"items": [
+						"view_edit"
+					]
+				},
+				"view_edit": {
+					"type": "view_edit"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "calendar",
+			"type": "calendar",
+			"layoutId": "leftbar",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "calendar-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button",
+								"breadcrumb"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"simple_search",
+								"list_options",
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "calendar",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"calendar"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "list-sidebar-top",
+					"grid": [],
+					"cells": {},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"breadcrumb": {
+					"type": "breadcrumb"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"simple_search": {
+					"type": "simple_search"
+				},
+				"calendar": {
+					"type": "calendar"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login"
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"add": {
+					"type": "add"
+				},
+				"list_options": {
+					"type": "list_options",
+					"items": [
+						"export",
+						"import"
+					]
+				},
+				"export": {
+					"type": "export"
+				},
+				"import": {
+					"type": "import"
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"pageWidth": "full",
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "add_calendar",
+			"type": "add",
+			"layoutId": "nomenu",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "add-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "add-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_save",
+								"add_reset",
+								"add_back_list",
+								"add_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "add-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "calendar-add",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "cal11"
+								},
+								{
+									"cell": "cal12"
+								},
+								{
+									"cell": "cal"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "cal21"
+								},
+								{
+									"cell": "cal22"
+								},
+								{
+									"cell": "cal13"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								},
+								{
+									"cell": "c31"
+								},
+								{
+									"cell": "cal14"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"cal11": {
+							"model": "cal11",
+							"items": [
+								"calendar_subject1"
+							]
+						},
+						"cal12": {
+							"model": "cal12",
+							"items": [
+								"calendar_date"
+							]
+						},
+						"cal21": {
+							"model": "cal21",
+							"items": [
+								"integrated_edit_field2"
+							]
+						},
+						"cal22": {
+							"model": "cal22",
+							"items": [
+								"integrated_edit_field1"
+							]
+						},
+						"c3": {
+							"model": "c3",
+							"items": []
+						},
+						"c31": {
+							"model": "c31",
+							"items": [
+								"integrated_edit_field4"
+							]
+						},
+						"cal": {
+							"model": "cal12",
+							"items": [
+								"integrated_edit_field"
+							]
+						},
+						"cal13": {
+							"model": "cal22",
+							"items": [
+								"integrated_edit_field3"
+							]
+						},
+						"cal14": {
+							"model": "c31",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"add_header": {
+					"type": "add_header"
+				},
+				"add_back_list": {
+					"type": "add_back_list"
+				},
+				"add_cancel": {
+					"type": "add_cancel"
+				},
+				"add_message": {
+					"type": "add_message"
+				},
+				"add_save": {
+					"type": "add_save",
+					"icon": {}
+				},
+				"add_reset": {
+					"type": "add_reset"
+				},
+				"calendar_date": {
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"feature": "calendar",
+					"field": "tarikh"
+				},
+				"calendar_subject1": {
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"feature": "calendar",
+					"field": "tajuk_mesyuarat"
+				},
+				"integrated_edit_field": {
+					"field": "bilik_id",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "bil_ahli",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "sesi",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field3": {
+					"field": "nama_pengerusi",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field4": {
+					"field": "tempahan_oleh",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"English": "New event"
+			}
+		},
+		{
+			"id": "edit_calendar",
+			"type": "edit",
+			"layoutId": "nomenu",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "edit-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "edit-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_save",
+								"calendar_delete",
+								"edit_back_list",
+								"edit_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"hamburger"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "edit-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "calendar-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "cal11"
+								},
+								{
+									"cell": "cal12"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "cal21"
+								},
+								{
+									"cell": "cal22"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"cal11": {
+							"model": "cal11",
+							"items": [
+								"calendar_subject1"
+							]
+						},
+						"cal12": {
+							"model": "cal12",
+							"items": []
+						},
+						"cal21": {
+							"model": "cal21",
+							"items": [
+								"calendar_date"
+							]
+						},
+						"cal22": {
+							"model": "cal22",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"edit_header": {
+					"type": "edit_header"
+				},
+				"hamburger": {
+					"type": "hamburger",
+					"items": [
+						"edit_reset",
+						"edit_view"
+					]
+				},
+				"edit_reset": {
+					"type": "edit_reset"
+				},
+				"edit_message": {
+					"type": "edit_message"
+				},
+				"edit_save": {
+					"type": "edit_save"
+				},
+				"edit_back_list": {
+					"type": "edit_back_list"
+				},
+				"edit_close": {
+					"type": "edit_close"
+				},
+				"edit_view": {
+					"type": "edit_view"
+				},
+				"calendar_date": {
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"feature": "calendar",
+					"field": "tarikh"
+				},
+				"calendar_delete": {
+					"type": "calendar_delete"
+				},
+				"calendar_subject1": {
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"feature": "calendar",
+					"field": "tajuk_mesyuarat"
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"English": "Modify event"
+			}
+		},
+		{
+			"id": "view_calendar",
+			"type": "view",
+			"layoutId": "nomenu",
+			"disabled": false,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "view-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "view-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"calendar_edit",
+								"calendar_delete",
+								"view_back_list",
+								"view_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "view-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"view_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "calendar-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "cal11"
+								},
+								{
+									"cell": "cal12"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "cal21"
+								},
+								{
+									"cell": "cal22"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								},
+								{
+									"cell": "c31"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"cal11": {
+							"model": "cal11",
+							"items": [
+								"calendar_subject1"
+							]
+						},
+						"cal12": {
+							"model": "cal12",
+							"items": [
+								"integrated_edit_field"
+							]
+						},
+						"cal21": {
+							"model": "cal21",
+							"items": [
+								"calendar_date"
+							]
+						},
+						"cal22": {
+							"model": "cal22",
+							"items": []
+						},
+						"c3": {
+							"model": "c3",
+							"items": []
+						},
+						"c31": {
+							"model": "c31",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"view_header": {
+					"type": "view_header"
+				},
+				"view_back_list": {
+					"type": "view_back_list"
+				},
+				"view_close": {
+					"type": "view_close"
+				},
+				"calendar_edit": {
+					"type": "calendar_edit"
+				},
+				"calendar_date": {
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"feature": "calendar",
+					"field": "tarikh"
+				},
+				"calendar_delete": {
+					"type": "calendar_delete"
+				},
+				"calendar_subject1": {
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"feature": "calendar",
+					"field": "tajuk_mesyuarat"
+				},
+				"integrated_edit_field": {
+					"field": "sesi",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				}
+			},
+			"dbProps": {},
+			"version": 13,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"English": "Event"
+			}
+		}
+	],
+	"geoCoding": {
+		"enabled": false,
+		"latField": "",
+		"lonField": "",
+		"addressFields": []
+	},
+	"caption": {
+		"English": "Tempahan Calendar New"
+	}
+}
